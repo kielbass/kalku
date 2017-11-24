@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kalku", "kalku\kalku.csproj", "{50C6B19C-7F9A-4BA6-8A0C-8F891F74695E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50C6B19C-7F9A-4BA6-8A0C-8F891F74695E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50C6B19C-7F9A-4BA6-8A0C-8F891F74695E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50C6B19C-7F9A-4BA6-8A0C-8F891F74695E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50C6B19C-7F9A-4BA6-8A0C-8F891F74695E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F67E918-7E45-4889-9734-3CCDEE411E41}
+	EndGlobalSection
+EndGlobal
