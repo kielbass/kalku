@@ -23,8 +23,10 @@ namespace kalku
         private string _value ="0";
         private string _expresion;
         private bool _point = false;
+        private List<string> list;
         public MainWindow()
         {
+            list = new List<string>();
             InitializeComponent();
             SetValue();
         }
@@ -44,6 +46,31 @@ namespace kalku
             {
                 return false;
             }
+        }
+        private void PutInToExpression(string s)
+        {
+            if(!ZeroCheck())
+            {
+                if (!string.IsNullOrEmpty(_expresion))
+                {
+                    _expresion += " ";
+                    _expresion += s;
+                    _expresion += " ";
+                    _expresion += _value;
+
+                }
+                else
+                {
+                    _expresion = _value;
+                }
+
+                list.Add(s);
+                list.Add(_value);
+            
+            }
+            _value = "0";
+            SetValue();
+
         }
 
         #region NUMBERS
@@ -203,6 +230,11 @@ namespace kalku
             if(_value.Count()==0)
                 _value = "0";
             SetValue();
+        }
+
+        private void btnPlus_Click(object sender, RoutedEventArgs e)
+        {
+            PutInToExpression("+");
         }
     }
 }
