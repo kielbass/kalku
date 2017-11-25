@@ -5,8 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kalku"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Kalkulatore" Height="350" Width="400">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="5">
+            <MenuItem Header="Plik"/>
+        </Menu>
+        <TextBlock Name="txtUp" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" MinHeight="30" Margin="5" TextAlignment="Right" FontSize="20" FontFamily="Perpetua Titling MT"/>
+        <TextBlock Name="txtDown" Text="{Binding Path=Value}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" MinHeight="30" Margin="5" TextAlignment="Right" FontSize="20" FontFamily="Perpetua Titling MT"/>
+        <Grid Grid.Column="0" Grid.Row="3" Margin="5">
+            <Label Content="SDSADASDADAD"/>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="3" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnMC" Content="MC" Grid.Column="0" Grid.Row="0" Margin="5"/>
+            <Button x:Name="btnMR" Content="MR" Grid.Column="1" Grid.Row="0" Margin="5"/>
+            <Button x:Name="btnMS" Content="MS" Grid.Column="2" Grid.Row="0" Margin="5"/>
+            <Button x:Name="btnMPlus" Content="M+" Grid.Column="3" Grid.Row="0" Margin="5"/>
+            <Button x:Name="btnMMinus" Content="M-" Grid.Column="4" Grid.Row="0" Margin="5"/>
+            <Button x:Name="btnDelete" Content="delete" Grid.Column="0" Grid.Row="1" Margin="5" Click="btnDelete_Click"/>
+            <Button x:Name="btnCE" Content="CE" Grid.Column="1" Grid.Row="1" Margin="5" Click="btnCE_Click"/>
+            <Button x:Name="btnC" Content="C" Grid.Column="2" Grid.Row="1" Margin="5" Click="btnC_Click"/>
+            <Button x:Name="btnPlusMinus" Content="+-" Grid.Column="3" Grid.Row="1" Margin="5" Click="btnPlusMinus_Click"/>
+            <Button x:Name="btnSqrt" Content="SQRT" Grid.Column="4" Grid.Row="1" Margin="5" Click="btnSqrt_Click"/>
+            <Button x:Name="btnSeven" Content="7" Grid.Column="0" Grid.Row="2" Margin="5" Click="btnSeven_Click"/>
+            <Button x:Name="btnEight" Content="8" Grid.Column="1" Grid.Row="2" Margin="5" Click="btnEight_Click"/>
+            <Button x:Name="btnNine" Content="9" Grid.Column="2" Grid.Row="2" Margin="5" Click="btnNine_Click"/>
+            <Button x:Name="btnDevide" Content="/" Grid.Column="3" Grid.Row="2" Margin="5"/>
+            <Button x:Name="btnPercent" Content="%" Grid.Column="4" Grid.Row="2" Margin="5"/>
+            <Button x:Name="btnFour" Content="4" Grid.Column="0" Grid.Row="3" Margin="5" Click="btnFour_Click"/>
+            <Button x:Name="btnFive" Content="5" Grid.Column="1" Grid.Row="3" Margin="5" Click="btnFive_Click"/>
+            <Button x:Name="btnSix" Content="6" Grid.Column="2" Grid.Row="3" Margin="5" Click="btnSix_Click"/>
+            <Button x:Name="btnMulti" Content="*" Grid.Column="3" Grid.Row="3" Margin="5"/>
+            <Button x:Name="btnReciprocal" Content="1/x" Grid.Column="4" Grid.Row="3" Margin="5" Click="btnReciprocal_Click"/>
+            <Button x:Name="btnOne" Content="1" Grid.Column="0" Grid.Row="4" Margin="5" Click="btnOne_Click"/>
+            <Button x:Name="btnTwo" Content="2" Grid.Column="1" Grid.Row="4" Margin="5" Click="btnTwo_Click"/>
+            <Button x:Name="btnThree" Content="3" Grid.Column="2" Grid.Row="4" Margin="5" Click="btnThree_Click"/>
+            <Button x:Name="btnMinus" Content="-" Grid.Column="3" Grid.Row="4" Margin="5"/>
+            <Button x:Name="btnEqual" Content="=" Grid.Column="4" Grid.Row="4" Grid.RowSpan="2" Margin="5"/>
+            <Button x:Name="btnZero" Content="0" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Margin="5" Click="btnZero_Click"/>
+            <Button x:Name="btnPoint" Content="," Grid.Column="2" Grid.Row="5" Margin="5" Click="btnPoint_Click"/>
+            <Button x:Name="btnPlus" Content="+" Grid.Column="3" Grid.Row="5" Margin="5"/>
+        </Grid>
     </Grid>
 </Window>
