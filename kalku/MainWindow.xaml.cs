@@ -21,19 +21,21 @@ namespace kalku
     public partial class MainWindow : Window
     {
         private string _value ="0";
-        private string _expresion;
         private bool _point = false;
-        private List<string> list;
+
+        private Expression _expresion = new Expression();
+        private Memory _memory = new Memory();
+
         public MainWindow()
         {
-            list = new List<string>();
             InitializeComponent();
             SetValue();
         }
         private void SetValue()
         {
             txtDown.Text = _value;
-            txtUp.Text = _expresion;
+            txtUp.Text = _expresion.ToString();
+            txtMemory.Text = _memory.ToString();
         }
         private bool ZeroCheck()
         {
@@ -47,32 +49,6 @@ namespace kalku
                 return false;
             }
         }
-        private void PutInToExpression(string s)
-        {
-            if(!ZeroCheck())
-            {
-                if (!string.IsNullOrEmpty(_expresion))
-                {
-                    _expresion += " ";
-                    _expresion += s;
-                    _expresion += " ";
-                    _expresion += _value;
-
-                }
-                else
-                {
-                    _expresion = _value;
-                }
-
-                list.Add(s);
-                list.Add(_value);
-            
-            }
-            _value = "0";
-            SetValue();
-
-        }
-
         #region NUMBERS
         private void btnOne_Click(object sender, RoutedEventArgs e)
         {
@@ -200,7 +176,7 @@ namespace kalku
             SetValue();
         }
         #endregion
-
+        #region FORMAT EXPRESIONS
         private void btnC_Click(object sender, RoutedEventArgs e)
         {
             _value = "0";
@@ -211,7 +187,7 @@ namespace kalku
         private void btnCE_Click(object sender, RoutedEventArgs e)
         {
             _value = "0";
-            _expresion = "";
+            _expresion.CE();
             _point = false;
             SetValue();
         }
@@ -231,10 +207,76 @@ namespace kalku
                 _value = "0";
             SetValue();
         }
-
+        #endregion
+        #region TRADITIONAL BUTTONS
         private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
-            PutInToExpression("+");
+            _expresion.Add(_value, "+");
+            _value = "0";
+            SetValue();
+        }
+
+        private void btnMinus_Click(object sender, RoutedEventArgs e)
+        {
+            _expresion.Add(_value, "-");
+            _value = "0";
+            SetValue();
+        }
+
+        private void btnMulti_Click(object sender, RoutedEventArgs e)
+        {
+            _expresion.Add(_value, "*");
+            _value = "0";
+            SetValue();
+        }
+
+        private void btnDevide_Click(object sender, RoutedEventArgs e)
+        {
+            _expresion.Add(_value, "/");
+            _value = "0";
+            SetValue();
+        }
+
+        private void btnEqual_Click(object sender, RoutedEventArgs e)
+        {
+            _expresion.Add(_value, "");
+            _value = "0";
+            SetValue();
+        }
+        #endregion
+
+        private void btnMS_Click(object sender, RoutedEventArgs e)
+        {
+            decimal.TryParse(_expresion.Value, out decimal a);
+           _memory.Value = a;
+            SetValue();
+        }
+
+        private void btnMPlus_Click(object sender, RoutedEventArgs e)
+        {
+            _memory.Change(_expresion.ToString(), true);
+            SetValue();
+        }
+
+        private void btnMMinus_Click(object sender, RoutedEventArgs e)
+        {
+            _memory.Change(_expresion.ToString(), false);
+            SetValue();
+        }
+
+        private void btnMR_Click(object sender, RoutedEventArgs e)
+        {
+            _value = "0";
+            _expresion.CE();
+            _point = false;
+            _value = _memory.Value.ToString();
+            SetValue();
+        }
+
+        private void btnMC_Click(object sender, RoutedEventArgs e)
+        {
+            _memory.MR();
+            SetValue();
         }
     }
 }
