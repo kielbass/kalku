@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace kalku
-{
+{/// <summary>
+/// Klasa odpowiedzialna za działania matematyczne. 
+/// </summary>
     class Expression
     {
         private string _value;
@@ -15,12 +17,21 @@ namespace kalku
             {
                 return _value;
             }
+            set
+            {
+                _value = value;
+            }
         }
         private string _sign;
         public Expression()
         {
             
         }
+        /// <summary>
+        /// Zmiana wartosci przechowywanej przez klase.
+        /// </summary>
+        /// <param name="value">Wartość liczbowa.</param>
+        /// <param name="sign">Znak działania matematycznego</param>
         public void Add(string value,string sign)
         {
             if(value=="0")
@@ -42,10 +53,6 @@ namespace kalku
                 return;
             }
             _value = value;
-            _sign = sign;
-        }
-        public void ChangeSign(string sign)
-        {
             _sign = sign;
         }
         public override string ToString()
@@ -87,5 +94,17 @@ namespace kalku
             }
             return a;
         }
+        //dla potegi 
+        public void Pow(int j,string s)
+        {
+            decimal.TryParse(s, out decimal a);
+            decimal b = a;
+            for(int i=1;i<j;i++)
+            {
+                a *= b;
+            }
+            _value = a.ToString();
+        }
+
     }
 }

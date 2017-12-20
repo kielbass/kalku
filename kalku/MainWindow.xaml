@@ -24,7 +24,18 @@
         <TextBlock Name="txtUp" Grid.Column="1" Grid.Row="1" MinHeight="30" Margin="5" TextAlignment="Right" FontSize="20" FontFamily="Perpetua Titling MT"/>
         <TextBlock Name="txtDown" Text="{Binding Path=Value}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" MinHeight="30" Margin="5" TextAlignment="Right" FontSize="20" FontFamily="Perpetua Titling MT"/>
         <Grid Grid.Column="0" Grid.Row="3" Margin="5">
-            <Label Content="SDSADASDADAD"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnPowTwo" Content="x^2" Grid.Column="0" Grid.Row="0" Margin="5" Click="btnPowTwo_Click"/>
+            <Button x:Name="btnPowThree" Content="x^3" Grid.Column="1" Grid.Row="0" Margin="5" Click="btnPowThree_Click"/>
+            <Button x:Name="btnPowY" Content="x^y" Grid.Column="2" Grid.Row="0" Margin="5" Click="btnPowY_Click"/>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="3" Margin="5">
             <Grid.ColumnDefinitions>

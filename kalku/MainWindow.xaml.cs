@@ -22,6 +22,7 @@ namespace kalku
     {
         private string _value ="0";
         private bool _point = false;
+        private bool _pow = false; //czy jest ustawiana potega innej zmiennej
 
         private Expression _expresion = new Expression();
         private Memory _memory = new Memory();
@@ -36,6 +37,7 @@ namespace kalku
             txtDown.Text = _value;
             txtUp.Text = _expresion.ToString();
             txtMemory.Text = _memory.ToString();
+            _point = false;
         }
         private bool ZeroCheck()
         {
@@ -124,7 +126,7 @@ namespace kalku
         {
             if (!_point)
             {
-                _value += ".";
+                _value += ",";
                 _point = true;
             }
             SetValue();
@@ -239,12 +241,22 @@ namespace kalku
 
         private void btnEqual_Click(object sender, RoutedEventArgs e)
         {
-            _expresion.Add(_value, "");
-            _value = "0";
-            SetValue();
+            if(!_pow)
+            {
+                _expresion.Add(_value, "");
+                _value = "0";
+                SetValue();
+            }
+            else
+            {
+                int.TryParse(_value, out int a);
+                _expresion.Pow(a, _expresion.Value);
+                _value = "0";
+                SetValue();
+            }
         }
         #endregion
-
+        #region MEMORY 
         private void btnMS_Click(object sender, RoutedEventArgs e)
         {
             decimal.TryParse(_expresion.Value, out decimal a);
@@ -277,6 +289,30 @@ namespace kalku
         {
             _memory.MR();
             SetValue();
+        }
+        #endregion
+
+        private void btnPowTwo_Click(object sender, RoutedEventArgs e)
+        {
+            _expresion.Pow(2, _value);
+            _value = "0";
+            SetValue();
+        }
+
+        private void btnPowThree_Click(object sender, RoutedEventArgs e)
+        {
+            _expresion.Pow(3, _value);
+            _value = "0";
+            SetValue();
+        }
+
+        private void btnPowY_Click(object sender, RoutedEventArgs e)
+        {
+            _expresion.Value = _value;
+            _pow = true;
+            _value = "0";
+            SetValue();
+
         }
     }
 }
