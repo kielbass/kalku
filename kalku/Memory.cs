@@ -45,5 +45,12 @@ namespace kalku
             }
         }
 
+        public MainWindow MainWindow
+        {
+            get => default(MainWindow);
+            set
+            {
+            }
+        }
     }
 }

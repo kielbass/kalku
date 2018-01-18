@@ -90,6 +90,11 @@ namespace kalku
                         a /= b;
                     }
                     break;
+                case "%":
+                    {
+                        a %= b;
+                        break;
+                    }
 
             }
             return a;
@@ -106,5 +111,12 @@ namespace kalku
             _value = a.ToString();
         }
 
+        public MainWindow MainWindow
+        {
+            get => default(MainWindow);
+            set
+            {
+            }
+        }
     }
 }

@@ -255,6 +255,12 @@ namespace kalku
                 SetValue();
             }
         }
+        private void btnMod_Click(object sender, RoutedEventArgs e)
+        {
+            _expresion.Add(_value, "%");
+            _value = "0";
+            SetValue();
+        }
         #endregion
         #region MEMORY 
         private void btnMS_Click(object sender, RoutedEventArgs e)
@@ -291,7 +297,7 @@ namespace kalku
             SetValue();
         }
         #endregion
-
+        #region ADDITIONAL
         private void btnPowTwo_Click(object sender, RoutedEventArgs e)
         {
             _expresion.Pow(2, _value);
@@ -314,5 +320,19 @@ namespace kalku
             SetValue();
 
         }
+        #endregion
+
+        #region MENU ITEMS
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Aplikacja kalkulator na potrzeby przedmiotu ZASTOSOWANIE PROGRAMOWANIA OBIEKTOWEGO\npatryk.atlas@hotmail.com", "A CO TO!?");
+        }
+        #endregion
+
+
     }
 }
